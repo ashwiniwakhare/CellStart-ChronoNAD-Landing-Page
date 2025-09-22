@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CellStart — ChronoNAD+ (Mockup)</title>
+    <meta name="description" content="CellStart - ChronoNAD+ product mockup landing page (single-file, responsive)" />
+    <style>
+        /* -------------------------
+       Basic Reset & Variables
+       ------------------------- */
+        
+         :root {
+            --brand-navy: #002f5c;
+            --brand-light: #e9f6fb;
+            --muted: #6b7280;
+            --accent: #0b6b8f;
+            --card-bg: #f6fbfd;
+            --max-width: 1100px;
+            --radius: 12px;
+        }
+        
+        html,
+        body {
+            height: 100%
+        }
+        
+        * {
+            box-sizing: border-box
+        }
+        
+        body {
+            margin: 0;
+            font-family: "Source Sans Pro", "Cabin", "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            color: #0f1724;
+            background: #fbfdff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+        
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 28px;
+        }
+        /* -------------------------
+       Header / Nav
+       ------------------------- */
+        
+        header {
+            background: #fff;
+            border-bottom: 4px solid var(--brand-navy);
+        }
+        
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 24px;
+            gap: 16px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px
+        }
+        
+        .brand .logo {
+            width: 48px;
+            height: 48px
+        }
+        
+        .brand h1 {
+            margin: 0;
+            font-size: 18px;
+            color: var(--brand-navy);
+            letter-spacing: 0.2px
+        }
+        
+        nav ul {
+            display: flex;
+            gap: 18px;
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+        
+        nav a {
+            font-size: 14px;
+            color: var(--muted)
+        }
+        
+        .nav-cta {
+            background: var(--brand-navy);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06)
+        }
+        /* mobile nav */
+        
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: 0;
+            color: var(--brand-navy);
+            font-weight: 700
+        }
+        /* -------------------------
+       Hero
+       ------------------------- */
+        
+        .hero {
+            background: linear-gradient(180deg, var(--brand-light), #fff);
+            padding: 48px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-inner {
+            width: 100%;
+            max-width: var(--max-width);
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 32px;
+            align-items: center;
+            padding: 18px;
+        }
+        
+        .eyebrow {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 8px
+        }
+        
+        .hero-title {
+            font-size: 34px;
+            line-height: 1.03;
+            margin: 0;
+            color: var(--brand-navy);
+            font-weight: 800
+        }
+        
+        .hero-sub {
+            margin-top: 12px;
+            color: #334155;
+            line-height: 1.5
+        }
+        
+        .hero-ctas {
+            margin-top: 20px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-weight: 700;
+            border: 0;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background: var(--brand-navy);
+            color: #fff
+        }
+        
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid rgba(0, 47, 92, 0.08);
+            color: var(--brand-navy)
+        }
+        
+        .product-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 8px 30px rgba(16, 24, 40, 0.06);
+            text-align: center;
+        }
+        
+        .product-title {
+            font-weight: 800;
+            color: var(--brand-navy);
+            font-size: 18px;
+            margin: 8px 0
+        }
+        
+        .product-sub {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 12px
+        }
+        /* -------------------------
+       Section: Benefits (cards)
+       ------------------------- */
+        
+        .section {
+            padding: 40px 16px
+        }
+        
+        .section .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 20px
+        }
+        
+        .section h2 {
+            margin: 0;
+            color: var(--brand-navy);
+            font-size: 22px
+        }
+        
+        .grid {
+            display: grid;
+            gap: 18px
+        }
+        
+        .cards-3 {
+            grid-template-columns: repeat(3, 1fr)
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 18px;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(2, 6, 23, 0.03);
+        }
+        
+        .card h3 {
+            margin: 0;
+            font-size: 16px;
+            color: var(--brand-navy);
+            font-weight: 700
+        }
+        
+        .card p {
+            margin: 0;
+            color: #334155;
+            font-size: 14px;
+            line-height: 1.45
+        }
+        
+        .citation {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 12px
+        }
+        /* -------------------------
+       Section: Science (infographic)
+       ------------------------- */
+        
+        .science {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 22px;
+            align-items: start;
+            background: linear-gradient(180deg, #fff, #fcfeff);
+            padding: 24px;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(2, 6, 23, 0.03);
+        }
+        
+        .chart-card {
+            background: #fff;
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: inset 0 -1px 0 rgba(2, 6, 23, 0.03)
+        }
+        
+        .chart-title {
+            font-weight: 800;
+            color: var(--brand-navy);
+            margin-bottom: 8px
+        }
+        
+        .chart-sub {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 12px
+        }
+        /* tiny flow boxes on right */
+        
+        .flow {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            align-items: center
+        }
+        
+        .flow .bubble {
+            background: #e6f8ff;
+            padding: 10px 14px;
+            border-radius: 20px;
+            border: 2px solid rgba(11, 107, 143, 0.08);
+            font-weight: 700;
+            color: var(--brand-navy)
+        }
+        
+        .flow svg {
+            width: 28px;
+            height: 28px;
+            opacity: 0.9
+        }
+        /* -------------------------
+       Footer
+       ------------------------- */
+        
+        footer {
+            padding: 26px 16px;
+            background: #f8fafc;
+            color: #334155;
+            border-top: 1px solid rgba(2, 6, 23, 0.04)
+        }
+        
+        .footer-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px
+        }
+        /* -------------------------
+       Responsive
+       ------------------------- */
+        
+        @media (max-width:980px) {
+            .hero-inner {
+                grid-template-columns: 1fr
+            }
+            .science {
+                grid-template-columns: 1fr
+            }
+            .cards-3 {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+        
+        @media (max-width:600px) {
+            nav ul {
+                display: none
+            }
+            .menu-toggle {
+                display: inline-block
+            }
+            .cards-3 {
+                grid-template-columns: 1fr
+            }
+            .hero-title {
+                font-size: 26px
+            }
+            .brand h1 {
+                font-size: 15px
+            }
+            .hero-inner {
+                padding: 6px
+            }
+        }
+        /* small utilities */
+        
+        .muted {
+            color: var(--muted)
+        }
+        
+        .small {
+            font-size: 13px
+        }
+        
+        .pill {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: #f1f8fb;
+            color: var(--brand-navy);
+            font-weight: 700;
+            font-size: 13px
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="topbar">
+            <div class="brand">
+                <!-- Inline SVG "placeholder" logo - replace with real one if you have it -->
+                <!-- <svg class="logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"> -->
+                <img class="logo" src="C:\Users\Ashwini.wakhare\Desktop\projectttttttttt\1758530145145.png" alt="CellStart Logo" />
+
+                <defs>
+                    <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                        <stop offset="0" stop-color="#0b6b8f" />
+                        <stop offset="1" stop-color="#002f5c" />
+                    </linearGradient>
+                </defs>
+                <rect rx="12" width="64" height="64" fill="url(#g1)" />
+                <g transform="translate(10,14)" fill="#fff" font-family="sans-serif">
+                    <circle cx="14" cy="14" r="6" opacity="0.95" />
+                    <rect x="28" y="6" width="12" height="16" rx="6" opacity="0.9" />
+                </g>
+                </svg>
+                <div>
+                    <h1>CellStart</h1>
+                    <div class="small muted">ChronoNAD+ • Dislapharm</div>
+                </div>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:12px">
+                <nav aria-label="Main navigation">
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="#science">Science</a></li>
+                    </ul>
+                </nav>
+                <button class="btn nav-cta" onclick="location.href='#contact'">Shop Now</button>
+                <button class="menu-toggle" aria-expanded="false" onclick="toggleMenu()">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+            <div>
+                <div class="eyebrow pill">Clinically Inspired • Daily Supplement</div>
+                <h2 id="hero-title" class="hero-title">ChronoNAD+ — Restore cellular energy & vitality</h2>
+                <p class="hero-sub">As we age, NAD⁺ levels decline. ChronoNAD+ helps replenish your cellular fuel to support energy production, DNA repair, and cellular defense. One daily dose — science-forward formulation.</p>
+
+                <div class="hero-ctas">
+                    <a class="btn btn-primary" href="#benefits">Shop Now</a>
+                    <a class="btn btn-ghost" href="#science">Discover The Formula</a>
+                </div>
+
+                <p style="margin-top:14px" class="small muted">Mockup copy only — include citations for clinical claims in production materials.</p>
+            </div>
+
+            <div>
+                <div class="product-card" role="region" aria-label="ChronoNAD product">
+                    <!-- simple product SVG bottle -->
+                    <svg viewBox="0 0 160 160" width="100%" height="160" aria-hidden="true">
+            <defs>
+              <linearGradient id="bottleGradient" x1="0" x2="1">
+                <stop offset="0" stop-color="#e6f8ff"/>
+                <stop offset="1" stop-color="#f7fbff"/>
+              </linearGradient>
+            </defs>
+            <rect x="36" y="20" rx="8" ry="8" width="88" height="120" fill="url(#bottleGradient)" stroke="#d9eef6" stroke-width="2"/>
+            <rect x="56" y="6" width="48" height="18" rx="6" fill="#002f5c"/>
+            <text x="80" y="94" text-anchor="middle" font-weight="800" font-size="16" fill="#002f5c">ChronoNAD+</text>
+            <text x="80" y="112" text-anchor="middle" font-size="11" fill="#0b6b8f">Daily NAD⁺ Support</text>
+          </svg>
+
+                    <div class="product-title">ChronoNAD+</div>
+                    <div class="product-sub">Daily supplement designed to support NAD⁺ levels and cellular energy.</div>
+                    <div style="display:flex;gap:8px;justify-content:center;margin-top:8px">
+                        <a class="btn btn-primary" href="#contact" style="padding:10px 14px;font-size:14px">Shop</a>
+                        <a class="btn btn-ghost" href="#science" style="padding:10px 14px;font-size:14px">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT / Intro -->
+    <main>
+        <section id="about" class="section container" aria-labelledby="about-heading">
+            <div class="heading">
+                <h2 id="about-heading">Why ChronoNAD+?</h2>
+                <div class="muted small">Dislapharm & CellStart — 2025 V1.0</div>
+            </div>
+            <p class="muted" style="max-width:900px">
+                ChronoNAD+ is formulated to address the natural decline of NAD⁺ that occurs with age. By supporting cellular energy production, DNA repair pathways, and cellular defense mechanisms, ChronoNAD+ aims to help you feel more energetic and support daily cellular
+                function.
+            </p>
+        </section>
+
+        <!-- BENEFITS -->
+        <section id="benefits" class="section" aria-labelledby="benefits-heading">
+            <div class="container">
+                <div class="heading">
+                    <h2 id="benefits-heading">Key Benefits</h2>
+                    <div class="small muted">Use these as hero bullets or card callouts</div>
+                </div>
+
+                <div class="grid cards-3" style="grid-template-columns:repeat(3,1fr)">
+                    <article class="card" aria-labelledby="b1">
+                        <div style="display:flex;align-items:center;gap:12px">
+                            <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" fill="#dff6fb"/>
+                <path d="M7 12l3 3 7-7" stroke="#0b6b8f" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+                            <h3 id="b1">Energy Production</h3>
+                        </div>
+                        <p>Supports cellular pathways that help convert nutrients into usable energy for daily vitality and focus.</p>
+                    </article>
+
+                    <article class="card" aria-labelledby="b2">
+                        <div style="display:flex;align-items:center;gap:12px">
+                            <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" fill="#f0f9ff"/>
+                <path d="M9 12h6M9 8h6M9 16h6" stroke="#0b6b8f" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+                            <h3 id="b2">DNA Repair Support</h3>
+                        </div>
+                        <p>Supports natural cellular repair processes that maintain the integrity of your cells over time.</p>
+                    </article>
+
+                    <article class="card" aria-labelledby="b3">
+                        <div style="display:flex;align-items:center;gap:12px">
+                            <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" fill="#effafb"/>
+                <path d="M6 12c1.5-4 6-6 10-4" stroke="#0b6b8f" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 16c2-2 6-3 10-1" stroke="#0b6b8f" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+                            <h3 id="b3">Cellular Defense</h3>
+                        </div>
+                        <p>Supports the longevity pathways and cellular defenses that protect cells from everyday stressors.</p>
+                    </article>
+                </div>
+
+                <p class="citation">Source: Mockup. In production include clinical references and citations beneath any claim.</p>
+            </div>
+        </section>
+
+        <!-- SCIENCE / Infographic -->
+        <section id="science" class="section container" aria-labelledby="science-heading">
+            <div class="heading" style="align-items:flex-end">
+                <h2 id="science-heading">The Science of Cellular Energy</h2>
+                <div class="small muted">Visual mockup of NAD⁺ decline & benefit with ChronoNAD+</div>
+            </div>
+
+            <div class="science" role="region" aria-label="Science infographic">
+                <!-- Left: Chart -->
+                <div class="chart-card" aria-hidden="false">
+                    <div class="chart-title">NAD⁺ Declines with Age (Mockup)</div>
+                    <div class="chart-sub">Example trend illustrating NAD⁺ percentage vs age</div>
+
+                    <!-- Inline SVG line chart (simple, replace with real data if needed) -->
+                    <svg viewBox="0 0 420 180" width="100%" height="180" role="img" aria-label="NAD decline chart">
+            <defs>
+              <linearGradient id="lg" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0" stop-color="#0b6b8f" stop-opacity="0.9"/>
+                <stop offset="1" stop-color="#0b6b8f" stop-opacity="0.2"/>
+              </linearGradient>
+            </defs>
+
+            <!-- axes -->
+            <line x1="40" y1="20" x2="40" y2="150" stroke="#e6eef6" stroke-width="1" />
+            <line x1="40" y1="150" x2="400" y2="150" stroke="#e6eef6" stroke-width="1" />
+
+            <!-- labels -->
+            <text x="18" y="28" font-size="11" fill="#6b7280">100%</text>
+            <text x="18" y="154" font-size="11" fill="#6b7280">0%</text>
+            <text x="60" y="170" font-size="11" fill="#6b7280">20</text>
+            <text x="150" y="170" font-size="11" fill="#6b7280">30</text>
+            <text x="240" y="170" font-size="11" fill="#6b7280">40</text>
+            <text x="340" y="170" font-size="11" fill="#6b7280">70</text>
+
+            <!-- simple line path -->
+            <path d="M40 44 C90 58, 140 74, 190 92 C240 110, 290 126, 360 140" fill="none" stroke="#0b6b8f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+            <!-- shaded area under line -->
+            <path d="M40 44 C90 58, 140 74, 190 92 C240 110, 290 126, 360 140 L360 150 L40 150 Z" fill="url(#lg)" opacity="0.18" />
+
+            <!-- points -->
+            <circle cx="44" cy="48" r="3.5" fill="#0b6b8f"/>
+            <circle cx="140" cy="78" r="3.5" fill="#0b6b8f"/>
+            <circle cx="240" cy="108" r="3.5" fill="#0b6b8f"/>
+            <circle cx="360" cy="140" r="3.5" fill="#0b6b8f"/>
+          </svg>
+
+                    <p class="small muted" style="margin-top:10px">By middle age, NAD⁺ levels decline significantly (mockup). Source text shown as placeholder for layout.</p>
+                </div>
+
+                <!-- Right: How they work flow -->
+                <aside style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+                    <div style="background:#fff;padding:16px;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.03);width:100%">
+                        <div style="text-align:center">
+                            <div class="chart-title" style="font-size:16px">How They Work Together</div>
+                            <div class="chart-sub small">Resveratrol + NAD⁺ support longevity pathways</div>
+                        </div>
+
+                        <div style="display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:12px">
+                            <div class="bubble" style="width:100%;text-align:center">Resveratrol</div>
+                            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="#0b6b8f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <div class="bubble" style="width:100%;text-align:center">Activates "Longevity" Genes*</div>
+                            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="#0b6b8f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <div class="bubble" style="width:100%;text-align:center">Boosts NAD⁺ Function*</div>
+                            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="#0b6b8f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <div class="bubble" style="width:100%;text-align:center;background:linear-gradient(90deg,#0b6b8f,#002f5c);color:#fff">Enhanced Cellular Health & Defense*</div>
+                        </div>
+
+                        <p class="small muted" style="margin-top:12px">*Mockup claim. Add citation in live materials.</p>
+
+                        <div style="display:flex;gap:10px;justify-content:center;margin-top:12px">
+                            <a class="btn btn-primary" href="#contact" style="padding:10px 12px;font-size:13px">Discover The Formula</a>
+                            <a class="btn btn-ghost" href="#benefits" style="padding:10px 12px;font-size:13px">Learn More</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Contact & CTA -->
+        <section id="contact" class="section" aria-labelledby="contact-heading">
+            <div class="container" style="display:flex;flex-direction:column;gap:16px">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+                    <div>
+                        <h2 id="contact-heading" style="margin:0;color:var(--brand-navy)">Ready to Fuel Your Cells?</h2>
+                        <p class="muted small" style="margin-top:6px">Shop ChronoNAD+, learn more about ingredients, or request product data.</p>
+                    </div>
+
+                    <div style="display:flex;gap:10px;align-items:center">
+                        <a class="btn btn-primary" href="#" onclick="alert('This is a mockup. Link target: shop page');return false">Shop Now</a>
+                        <a class="btn btn-ghost" href="#" onclick="alert('This is a mockup. Link target: learn more');return false">Fuel My Cells</a>
+                    </div>
+                </div>
+
+                <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+                    <div style="flex:1;min-width:220px">
+                        <label class="small muted">Email for sample & updates</label>
+                        <input aria-label="email" placeholder="you@example.com" style="width:100%;padding:12px;border-radius:10px;border:1px solid #e6eef6;margin-top:8px" />
+                    </div>
+                    <div style="min-width:220px">
+                        <label class="small muted">Quantity</label>
+                        <select style="width:100%;padding:12px;border-radius:10px;border:1px solid #e6eef6;margin-top:8px">
+              <option>1 bottle</option>
+              <option>3 bottles</option>
+              <option>6 bottles</option>
+            </select>
+                    </div>
+                    <div style="display:flex;gap:8px;align-items:center">
+                        <button class="btn btn-primary" onclick="alert('Mock submission — replace with integration')">Request Sample</button>
+                        <div class="muted small">Or upload CSV via ZIP when submitting</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="small muted">Dislapharm & CellStart — 2025 V1.0</div>
+            <div class="small muted">Submission: Save this file as <strong>mockup.html</strong> and upload per instructions</div>
+        </div>
+    </footer>
+
+    <script>
+        /* Mobile nav toggle (very small) */
+        function toggleMenu() {
+            const ul = document.querySelector('nav ul');
+            const btn = document.querySelector('.menu-toggle');
+            if (!ul) return;
+            if (ul.style.display === '' || ul.style.display === 'none') {
+                ul.style.display = 'flex';
+                ul.style.flexDirection = 'column';
+                ul.style.position = 'absolute';
+                ul.style.right = '18px';
+                ul.style.top = '64px';
+                ul.style.background = '#fff';
+                ul.style.padding = '12px';
+                ul.style.borderRadius = '10px';
+                ul.style.boxShadow = '0 6px 20px rgba(2,6,23,0.08)';
+                btn.setAttribute('aria-expanded', 'true');
+            } else {
+                ul.style.display = 'none';
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        }
+
+        // Close mobile nav if clicked outside
+        document.addEventListener('click', function(e) {
+            const nav = document.querySelector('nav ul');
+            const btn = document.querySelector('.menu-toggle');
+            if (!nav || !btn) return;
+            if (nav.style.display === 'flex' && !nav.contains(e.target) && !btn.contains(e.target)) {
+                nav.style.display = 'none';
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
+</body>
+
+</html>
